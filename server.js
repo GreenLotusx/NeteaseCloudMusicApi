@@ -170,8 +170,9 @@ async function consturctServer(moduleDefs) {
   /**
    * Body Parser and File Upload
    */
-  app.use(express.json({limit: '5000mb'}))
-  app.use(express.urlencoded({limit: '5000mb', extended: false }))
+  var bodyParser = require('body-parser');
+  app.use(bodyParser.json({limit: '5000mb'}));
+  app.use(bodyParser.urlencoded({limit: '5000mb', extended: true}));
 
   app.use(fileUpload())
 
